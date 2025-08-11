@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 interface Profile {
@@ -119,9 +121,42 @@ const profiles: Profile[] = [
 export default function ProfileCards() {
   // Show all profiles (no filtering for now)
   const filteredProfiles = profiles
+  
+  const scrollLeft = () => {
+    const wrapper = document.querySelector('.swiper-wrapper');
+    if (wrapper) {
+      wrapper.scrollBy({ left: -350, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    const wrapper = document.querySelector('.swiper-wrapper');
+    if (wrapper) {
+      wrapper.scrollBy({ left: 350, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div id="vvc-startup-list">
       <div className="stacked-slider swiper-container">
+        {/* Left Navigation Arrow */}
+        <button 
+          className="carousel-nav prev" 
+          onClick={scrollLeft}
+          aria-label="Scroll left"
+        >
+          <i className="fas fa-chevron-left"></i>
+        </button>
+        
+        {/* Right Navigation Arrow */}
+        <button 
+          className="carousel-nav next" 
+          onClick={scrollRight}
+          aria-label="Scroll right"
+        >
+          <i className="fas fa-chevron-right"></i>
+        </button>
+        
         <ul className="swiper-wrapper">
           {filteredProfiles.map((profile) => (
             <li key={profile.id} className="swiper-slide" data-bp-startup-id={profile.id}>
