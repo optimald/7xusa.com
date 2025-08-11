@@ -21,4 +21,4 @@ fi
 
 # Start the development server on port 3005
 echo "✅ Starting Next.js development server..."
-npm run dev -- -p 3005
+npx next dev -p 3005
