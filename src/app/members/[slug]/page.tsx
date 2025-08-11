@@ -204,7 +204,7 @@ export default function MemberProfile({ params }: PageProps) {
                     <i className="fab fa-linkedin-in"></i>
                   </a>
                 )}
-                {member.socialMedia.twitter && (
+                {'twitter' in member.socialMedia && member.socialMedia.twitter && (
                   <a 
                     href={member.socialMedia.twitter}
                     target="_blank"
@@ -224,7 +224,7 @@ export default function MemberProfile({ params }: PageProps) {
                     <i className="fab fa-twitter"></i>
                   </a>
                 )}
-                {member.socialMedia.instagram && (
+                {'instagram' in member.socialMedia && member.socialMedia.instagram && (
                   <a 
                     href={member.socialMedia.instagram}
                     target="_blank"
